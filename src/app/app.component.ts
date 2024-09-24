@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { HeaderComponent } from './partials/header/header.component';
 import { DatePipe, JsonPipe } from '@angular/common';
 import { TaskService } from './services/task.service';
 import { Task } from './interfaces/task';
+import { ProductsService } from './services/products.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ import { Task } from './interfaces/task';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   // Properties
   title = 'Demo bases Angular';
   today: Date = new Date
@@ -25,13 +26,30 @@ export class AppComponent {
   count: number = 0
 
   tasks?: Array<Task>
+
+  products?: Array<any>
+
   // Injection d'un service en tant que prop
   // private taskService: TaskService = inject(TaskService)
+  private productService: ProductsService = inject(ProductsService)
 
   // constructor
   // Injection depuis le constructor
   constructor(taskService: TaskService) {
     this.tasks = taskService.getTasks()
+  }
+
+  // Hook OnInit
+  ngOnInit() {
+    this.productService.fetchProducts().subscribe({
+      next: (data: any) => {
+        this.products = data
+        console.log(data);
+      },
+      error: (error: any) => {
+        console.error(error)
+      }
+    })
   }
 
   // Methods
