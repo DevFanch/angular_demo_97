@@ -1,0 +1,31 @@
+<app-header></app-header>
+<!-- Les directives -->
+
+<!-- Affichage {{ }}-->
+<h1>{{ title }}</h1>
+
+<p>Nous somme le {{ today | date: 'd-M-Y à H:mm' }}</p>
+
+<!-- Structurel @ -->
+@if(isAdmin) {
+    <p>Cool t'es Admin</p>
+}
+
+<ul>
+    @for (item of courseList; track $index) {
+        <li>{{ item }} - {{ $index }}</li>
+        <!-- @if($first) {
+            <p>{{ $first }}</p>
+        } -->
+    }
+</ul>
+
+<!-- Attribut [] -->
+<img [src]="pathImage" alt="" height="100">
+<br>
+<!-- Event (click) -->
+<button (click)="addOne()">Plus 1</button>
+<p>{{ count }}</p>
+
+<h3>Service</h3>
+<p>{{ tasks | json }}</p>
