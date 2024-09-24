@@ -1,31 +1,37 @@
-<app-header></app-header>
-<!-- Les directives -->
+<!-- Import Component Header -->
+<app-header class="mb-4"></app-header>
 
-<!-- Affichage {{ }}-->
-<h1>{{ title }}</h1>
-
-<p>Nous somme le {{ today | date: 'd-M-Y à H:mm' }}</p>
-
-<!-- Structurel @ -->
-@if(isAdmin) {
-    <p>Cool t'es Admin</p>
-}
-
-<ul>
-    @for (item of courseList; track $index) {
-        <li>{{ item }} - {{ $index }}</li>
-        <!-- @if($first) {
-            <p>{{ $first }}</p>
-        } -->
+<div class="container mx-auto">
+    <!-- Diplaying -->
+    <h1 class="text-3xl font-bold mb-4">{{ title }}</h1>
+    <!-- Format date with pipe -->
+    <p class="text-gray-600 mb-4">Nous sommes le {{ today | date: 'd-M-Y à H:mm' }}</p>
+    <!-- Condition -->
+    @if (isAdmin) {
+        <div class="p-4 bg-green-100 text-green-800 rounded-md mb-4">
+            <p>Cool, t'es Admin</p>
+        </div>
     }
-</ul>
+    <!-- Loop -->
+    <ul class="space-y-2 mb-4">
+        @for (item of courseList; track $index) {   
+            <li class="flex items-center">
+                <span class="mr-2">{{ item }}</span>
+                <span class="text-gray-500">- {{ $index }}</span>
+            </li>
+        }
+    </ul>
 
-<!-- Attribut [] -->
-<img [src]="pathImage" alt="" height="100">
-<br>
-<!-- Event (click) -->
-<button (click)="addOne()">Plus 1</button>
-<p>{{ count }}</p>
+    <!-- Attribute Directive -->
+    <img [src]="pathImage" class="mr-4 w-1/4">
 
-<h3>Service</h3>
-<p>{{ tasks | json }}</p>
+    <!-- Event Directive -->
+    <div class="flex flex-col items-center mb-4">
+        <button (click)="addOne()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Plus 1</button>
+        <p class="mb-4">{{ count }}</p>
+    </div>
+
+    <!-- Service fetch data -->
+    <h3 class="text-xl font-bold mb-2">Service</h3>
+    <pre class="bg-gray-100 p-4 rounded-md mb-4">{{ tasks | json }}</pre>
+</div>

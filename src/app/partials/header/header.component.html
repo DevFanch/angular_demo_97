@@ -6,13 +6,12 @@
         <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
             @for (link of links; track $index) {
                 @if (isAdmin == true && link == 'Admin') {
-                    <a [ngClass]="{'mr-5 hover:text-red-500' : true, 'red': isAdmin}">{{ link }}</a>
+                    <a [ngClass]="{'mr-10 hover:text-red-500' : true, 'red': isAdmin}">{{ link }}</a>
                 }
                 @if(link != 'Admin') {
-                    <a [ngClass]="{'mr-5 hover:text-gray-900 green': true}">{{ link }}</a>
+                    <a [ngClass]="{'mr-10 hover:text-gray-900 green': true}">{{ link }}</a>
                 }
             }
-
         </nav>
     </div>
 </header>

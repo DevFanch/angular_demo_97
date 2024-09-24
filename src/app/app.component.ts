@@ -16,7 +16,7 @@ export class AppComponent implements OnInit{
   // Properties
   title = 'Demo bases Angular';
   today: Date = new Date
-  isAdmin: boolean = false
+  isAdmin: boolean = true
   courseList: Array<string> = [
     'pain', 
     'chocolat',

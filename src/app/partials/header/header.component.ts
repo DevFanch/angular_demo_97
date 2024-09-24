@@ -9,6 +9,6 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  links: Array<string> = ['Home', 'About', 'Contact Us', 'Admin']
+  links: Array<string> = ['Home', 'TodoList App', 'Generations', 'Pokemons' ,'Admin']
   isAdmin: boolean = true
 }
