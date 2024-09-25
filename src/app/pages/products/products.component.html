@@ -1,5 +1,4 @@
 <!-- Displaying Products from DummyJson -->
-<h4 class="text-xl font-bold mb-2">Api datas</h4>
 @if(products) {
 <div class="container mx-auto px-4 py-8">
     <h1 class="text-3xl font-bold mb-6 text-center">Nos Produits</h1>
@@ -16,10 +15,10 @@
                         {{ product.rating | number:'1.1-1' }} ★
                     </span>
                 </div>
-                <button
+                <a [routerLink]="['/product', product.id]"
                     class="mt-4 w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300">
-                    Ajouter au panier
-                </button>
+                    Voir les détails
+                </a>
             </div>
         </div>
         }

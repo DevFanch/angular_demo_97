@@ -1,11 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 import { DecimalPipe, SlicePipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [SlicePipe, DecimalPipe],
+  imports: [SlicePipe, DecimalPipe, RouterLink],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })
