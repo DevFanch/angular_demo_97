@@ -1,0 +1,37 @@
+<div class="container mx-auto">
+    <h3 class="text-xl font-bold mb-2">Directives</h3>
+    <!-- Diplaying -->
+    <!-- Format date with pipe -->
+    <p class="text-gray-600 mb-4">Nous sommes le {{ today | date: 'd-M-Y à H:mm' }}</p>
+    <!-- Condition -->
+    @if (isAdmin) {
+    <div class="p-4 bg-green-100 text-green-800 rounded-md mb-4">
+        <p>Cool, t'es Admin</p>
+    </div>
+    }
+    <!-- Loop -->
+    <ul class="space-y-2 mb-4">
+        @for (item of courseList; track $index) {
+        <li class="flex items-center">
+            <span class="mr-2">{{ item }}</span>
+            <span class="text-gray-500">- {{ $index }}</span>
+        </li>
+        }
+    </ul>
+
+    <!-- Attribute Directive -->
+    <img [src]="pathImage" class="mr-4 w-1/4">
+
+    <!-- Event Directive -->
+    <div class="flex flex-col items-center mb-4">
+        <button (click)="addOne()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Plus 1</button>
+        <p class="mb-4">{{ count }}</p>
+    </div>
+
+    <!-- Service fetch data -->
+    <h3 class="text-xl font-bold mb-2">Service</h3>
+    <h4 class="text-xl font-bold mb-2">Fake datas</h4>
+    <pre class="bg-gray-100 p-4 rounded-md mb-4">{{ tasks | json }}</pre>
+
+    
+</div>
