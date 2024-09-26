@@ -12,6 +12,6 @@ export class ProductComponent implements OnInit {
   private routeParam: ActivatedRoute = inject(ActivatedRoute)
 
   ngOnInit(): void {
-    console.info(this.routeParam.snapshot.params.id);
+    console.info(this.routeParam.snapshot.params['id']);
   }
 }
